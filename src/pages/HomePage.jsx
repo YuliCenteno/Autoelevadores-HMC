@@ -230,6 +230,60 @@ function HomePage() {
           </div>
         </section>
 
+                {/* Sección Video Reel */}
+        <section className="py-16 bg-background border-y border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              {/* Texto descriptivo */}
+              <div className="lg:col-span-5 space-y-4">
+                <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+                  Trabajo a Domicilio
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Mirá cómo trabajamos
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Reparación y mantenimiento en tiempo real. Nos enfocamos en cuidar cada detalle técnico para asegurar la máxima durabilidad de tus equipos.
+                </p>
+                <div className="pt-2">
+                  <Button
+                    onClick={handleWhatsApp}
+                    size="lg"
+                    className="bg-[#25D366] text-white hover:bg-[#20BA5A] transition-all duration-200 active:scale-[0.98]"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-2 fill-current"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.71 1.455h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.163-3.486-8.411" />
+                    </svg>
+                    Consultar por tu equipo
+                  </Button>
+                </div>
+              </div>
+
+              {/* Contenedor del Video en formato Reel (9:16) */}
+              <div className="lg:col-span-7 flex justify-center">
+                <div className="relative w-full max-w-[340px] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-card bg-black">
+                  <video
+                    src="https://res.cloudinary.com/crwsvgt8/video/upload/v1788988906/ReparacionDomicilio.mp4"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                    poster="OPCIONAL_URL_DE_IMAGEN_DE_PORTADA.jpg"
+                  >
+                    Tu navegador no soporta el formato de video.
+                  </video>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         <section id="galeria" className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">

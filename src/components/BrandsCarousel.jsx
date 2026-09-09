@@ -23,42 +23,42 @@ const BRANDS = [
   },
   {
     name: 'Linde',
-    logo: '../../images/linde1.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988846/linde1.svg',
     height: 'max-h-10 md:max-h-12',
   },
   {
     name: 'Komatsu',
-    logo: '../../images/komatsu1.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988845/komatsu1.svg',
     height: 'max-h-8 md:max-h-10',
   },
   {
     name: 'Jungheinrich',
-    logo: '../../images/Jungheinrich.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988845/jungheinrich.svg',
     height: 'max-h-7 md:max-h-9',
   },
   {
     name: 'Hyster',
-    logo: '../../images/hyster.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988845/hyster.svg',
     height: 'max-h-9 md:max-h-11',
   },
   {
     name: 'Yale',
-    logo: '../../images/yale.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988849/yale.svg',
     height: 'max-h-9 md:max-h-11',
   },
   {
     name: 'Heli',
-    logo: '../../images/heli.png',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988845/heli.png',
     height: 'max-h-9 md:max-h-11',
   },
   {
     name: 'Clark',
-    logo: '../../images/clark.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988845/clark.svg',
     height: 'max-h-8 md:max-h-10',
   },
   {
     name: 'LiuGong',
-    logo: '../../images/liugong.svg',
+    logo: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1788988846/liugong.svg',
     height: 'max-h-8 md:max-h-10',
   },
 ];
