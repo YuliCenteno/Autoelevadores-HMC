@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://autoelevadoreshmc.com.ar/sitemap.xml
