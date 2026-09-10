@@ -7,76 +7,116 @@ import { Wrench, Shield, Cog, Search, Droplet, CheckCircle2, ArrowRight, Check, 
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 
+// 1. Datos encapsulados fuera del render para evitar recreaciones en cada ciclo
+const SERVICES = [
+  {
+    icon: Wrench,
+    title: 'Reparación integral',
+    description: 'Reparación completa de autoelevadores de todas las marcas y modelos con repuestos originales y garantía extendida.',
+    benefits: [
+      'Diagnóstico gratuito en nuestro taller',
+      'Repuestos originales certificados',
+      'Garantía de 6 meses en todas las reparaciones',
+      'Servicio express en menos de 48 horas',
+      'Presupuesto sin cargo'
+    ],
+    image: 'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg'
+  },
+  {
+    icon: Shield,
+    title: 'Mantenimiento preventivo',
+    description: 'Planes de mantenimiento programado diseñados para maximizar la vida útil de sus equipos y prevenir fallas costosas.',
+    benefits: [
+      'Inspección completa de 47 puntos críticos',
+      'Cambio de aceites y filtros',
+      'Revisión de sistemas de seguridad',
+      'Informes detallados post-servicio',
+      'Planes mensuales, trimestrales o anuales'
+    ],
+    image: 'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM.jpg'
+  },
+  {
+    icon: Cog,
+    title: 'Service técnico completo',
+    description: 'Service integral con revisión exhaustiva de todos los sistemas: hidráulicos, eléctricos, mecánicos y de seguridad.',
+    benefits: [
+      'Revisión de sistema hidráulico completo',
+      'Verificación de sistema eléctrico',
+      'Inspección de frenos y dirección',
+      'Calibración de instrumentos',
+      'Certificado de aptitud técnica'
+    ],
+    image: 'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_1.jpg'
+  },
+  {
+    icon: Search,
+    title: 'Diagnóstico de fallas',
+    description: 'Diagnóstico preciso y rápido de fallas mediante equipamiento especializado de última generación y técnicos certificados.',
+    benefits: [
+      'Equipamiento de diagnóstico computarizado',
+      'Técnicos certificados por fabricantes',
+      'Informe técnico detallado',
+      'Presupuesto de reparación sin cargo',
+      'Atención en planta o en nuestro taller'
+    ],
+    image: 'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.34_PM_2.jpg'
+  },
+  {
+    icon: Droplet,
+    title: 'Reparaciones hidráulicas y mecánicas',
+    description: 'Especialistas en sistemas hidráulicos, transmisiones, motores y todos los componentes mecánicos de su autoelevador.',
+    benefits: [
+      'Reparación de bombas hidráulicas',
+      'Reconstrucción de cilindros',
+      'Reparación de transmisiones',
+      'Overhaul de motores',
+      'Reemplazo de mangueras y conexiones'
+    ],
+    image: 'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM.jpg'
+  }
+];
+
+const COMBUSTION_TASKS = [
+  { task: 'Chequeo Puntos de Control - inspección Ajustes y Engrases', h250: '90 puntos', h1000: '99 puntos', h2000: '119 puntos', isHeader: true },
+  { task: 'Reemplazo Aceite de motor', h250: true, h1000: true, h2000: true },
+  { task: 'Reemplazo Filtro de aceite del motor', h250: true, h1000: true, h2000: true },
+  { task: 'Reemplazo Refrigerante de motor LLC', h250: false, h1000: false, h2000: true },
+  { task: 'Reemplazo Filtro de aire', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Filtro del combustible', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Aceite del convertidor de par', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Filtro de aceite del convertidor de par', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Aceite de engranaje del diferencial', h250: false, h1000: false, h2000: true },
+  { task: 'Reemplazo Aceite hidráulico', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Filtro del aceite hidráulico - retorno', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo bujías (solo nafta)', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Correa Bomba Agua', h250: false, h1000: false, h2000: true },
+  { task: 'Reemplazo Grasa de los cojinetes de las ruedas', h250: false, h1000: false, h2000: true },
+  { task: 'Inspección: Cilindro principal, tapa, sellos del cilindro de ruedas', h250: false, h1000: false, h2000: true },
+  { task: 'Reemplazo Fluido de freno', h250: false, h1000: true, h2000: true }
+];
+
+const ELECTRIC_TASKS = [
+  { task: 'Chequeo Puntos de Control - inspección, calibración, Ajustes y Engrases', h250: '25 puntos', h1000: '53 puntos', h2000: '67 puntos', isHeader: true },
+  { task: 'Reemplazo Líquido de los frenos', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Aceite hidráulico', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Filtro de aceite de retorno hidráulico', h250: false, h1000: true, h2000: true },
+  { task: 'Reemplazo Aceite diferencial y transmisión', h250: false, h1000: false, h2000: true },
+  { task: 'Reemplazo Grasa para cojinetes de ruedas', h250: false, h1000: false, h2000: true },
+  { task: 'Inspección Partes de goma del cilindro principal (insp.)', h250: true, h1000: true, h2000: true },
+  { task: 'Inspección Partes de goma del cilindro de la rueda (insp.)', h250: true, h1000: true, h2000: true }
+];
+
 function ServiciosPage() {
   const [activeTab, setActiveTab] = useState('combustion');
 
-  const services = [
-    {
-      icon: Wrench,
-      title: 'Reparación integral',
-      description: 'Reparación completa de autoelevadores de todas las marcas y modelos con repuestos originales y garantía extendida.',
-      benefits: [
-        'Diagnóstico gratuito en nuestro taller',
-        'Repuestos originales certificados',
-        'Garantía de 6 meses en todas las reparaciones',
-        'Servicio express en menos de 48 horas',
-        'Presupuesto sin cargo'
-      ],
-      image: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg'
-    },
-    {
-      icon: Shield,
-      title: 'Mantenimiento preventivo',
-      description: 'Planes de mantenimiento programado diseñados para maximizar la vida útil de sus equipos y prevenir fallas costosas.',
-      benefits: [
-        'Inspección completa de 47 puntos críticos',
-        'Cambio de aceites y filtros',
-        'Revisión de sistemas de seguridad',
-        'Informes detallados post-servicio',
-        'Planes mensuales, trimestrales o anuales'
-      ],
-      image: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM.jpg'
-    },
-    {
-      icon: Cog,
-      title: 'Service técnico completo',
-      description: 'Service integral con revisión exhaustiva de todos los sistemas: hidráulicos, eléctricos, mecánicos y de seguridad.',
-      benefits: [
-        'Revisión de sistema hidráulico completo',
-        'Verificación de sistema eléctrico',
-        'Inspección de frenos y dirección',
-        'Calibración de instrumentos',
-        'Certificado de aptitud técnica'
-      ],
-      image: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_1.jpg'
-    },
-    {
-      icon: Search,
-      title: 'Diagnóstico de fallas',
-      description: 'Diagnóstico preciso y rápido de fallas mediante equipamiento especializado de última generación y técnicos certificados.',
-      benefits: [
-        'Equipamiento de diagnóstico computarizado',
-        'Técnicos certificados por fabricantes',
-        'Informe técnico detallado',
-        'Presupuesto de reparación sin cargo',
-        'Atención en planta o en nuestro taller'
-      ],
-      image: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.34_PM_2.jpg'
-    },
-    {
-      icon: Droplet,
-      title: 'Reparaciones hidráulicas y mecánicas',
-      description: 'Especialistas en sistemas hidráulicos, transmisiones, motores y todos los componentes mecánicos de su autoelevador.',
-      benefits: [
-        'Reparación de bombas hidráulicas',
-        'Reconstrucción de cilindros',
-        'Reparación de transmisiones',
-        'Overhaul de motores',
-        'Reemplazo de mangueras y conexiones'
-      ],
-      image: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM.jpg'
+  const activeTableData = activeTab === 'combustion' ? COMBUSTION_TASKS : ELECTRIC_TASKS;
+
+  const renderCellContent = (value) => {
+    if (typeof value === 'boolean') {
+      return value ? <Check className="w-5 h-5 mx-auto text-primary" /> : <span className="text-muted-foreground">-</span>;
     }
-  ];
+    return <span className="font-medium text-primary">{value}</span>;
+  };
 
   return (
     <>
@@ -104,9 +144,9 @@ function ServiciosPage() {
 
             {/* Listado de Servicios */}
             <div className="space-y-20">
-              {services.map((service, index) => (
+              {SERVICES.map((service, index) => (
                 <motion.div
-                  key={index}
+                  key={service.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -144,6 +184,7 @@ function ServiciosPage() {
                       <img
                         src={service.image}
                         alt={service.title}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -219,9 +260,11 @@ function ServiciosPage() {
                   </h3>
                 </div>
 
-                {/* Tabs para Alternar entre Combustión y Eléctricos */}
-                <div className="flex justify-center mb-8 gap-4">
+                {/* Tabs */}
+                <div role="tablist" className="flex justify-center mb-8 gap-4">
                   <button
+                    role="tab"
+                    aria-selected={activeTab === 'combustion'}
                     onClick={() => setActiveTab('combustion')}
                     className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-pointer ${
                       activeTab === 'combustion'
@@ -233,6 +276,8 @@ function ServiciosPage() {
                     Equipos a Combustión Interna
                   </button>
                   <button
+                    role="tab"
+                    aria-selected={activeTab === 'electric'}
                     onClick={() => setActiveTab('electric')}
                     className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-pointer ${
                       activeTab === 'electric'
@@ -245,179 +290,30 @@ function ServiciosPage() {
                   </button>
                 </div>
 
-                {/* Contenido de Tablas */}
+                {/* Tabla Reutilizable Dinámica */}
                 <div className="overflow-x-auto rounded-xl border border-border shadow-md bg-card">
-                  {activeTab === 'combustion' ? (
-                    <table className="w-full text-left border-collapse">
-                      <thead>
-                        <tr className="bg-muted text-foreground">
-                          <th className="p-4 font-bold border-b border-border">Tareas a realizar</th>
-                          <th className="p-4 font-bold border-b border-border text-center">Cada 250/500/750 hs</th>
-                          <th className="p-4 font-bold border-b border-border text-center">Cada 1000 hs</th>
-                          <th className="p-4 font-bold border-b border-border text-center">Cada 2000 hs</th>
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-muted text-foreground">
+                        <th className="p-4 font-bold border-b border-border">Tareas a realizar</th>
+                        <th className="p-4 font-bold border-b border-border text-center">Cada 250/500/750 hs</th>
+                        <th className="p-4 font-bold border-b border-border text-center">Cada 1000 hs</th>
+                        <th className="p-4 font-bold border-b border-border text-center">Cada 2000 hs</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border text-sm md:text-base">
+                      {activeTableData.map((row, idx) => (
+                        <tr key={idx} className="hover:bg-muted/40 transition-colors">
+                          <td className={`p-4 ${row.isHeader ? 'font-medium text-foreground' : 'text-muted-foreground'}`}>
+                            {row.task}
+                          </td>
+                          <td className="p-4 text-center">{renderCellContent(row.h250)}</td>
+                          <td className="p-4 text-center">{renderCellContent(row.h1000)}</td>
+                          <td className="p-4 text-center">{renderCellContent(row.h2000)}</td>
                         </tr>
-                      </thead>
-                      <tbody className="divide-y divide-border text-sm md:text-base">
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 font-medium text-foreground">Chequeo Puntos de Control - inspección Ajustes y Engrases</td>
-                          <td className="p-4 text-center font-medium text-primary">90 puntos</td>
-                          <td className="p-4 text-center font-medium text-primary">99 puntos</td>
-                          <td className="p-4 text-center font-medium text-primary">119 puntos</td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Aceite de motor</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Filtro de aceite del motor</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Refrigerante de motor LLC</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Filtro de aire</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Filtro del combustible</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Aceite del convertidor de par</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Filtro de aceite del convertidor de par</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Aceite de engranaje del diferencial</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Aceite hidráulico</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Filtro del aceite hidráulico - retorno</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo bujías (solo nafta)</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Correa Bomba Agua</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Grasa de los cojinetes de las ruedas</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Inspección: Cilindro principal, tapa, sellos del cilindro de ruedas</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Fluido de freno</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  ) : (
-                    <table className="w-full text-left border-collapse">
-                      <thead>
-                        <tr className="bg-muted text-foreground">
-                          <th className="p-4 font-bold border-b border-border">Tareas a realizar</th>
-                          <th className="p-4 font-bold border-b border-border text-center">Cada 250/500/750 hs</th>
-                          <th className="p-4 font-bold border-b border-border text-center">Cada 1000 hs</th>
-                          <th className="p-4 font-bold border-b border-border text-center">Cada 2000 hs</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-border text-sm md:text-base">
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 font-medium text-foreground">Chequeo Puntos de Control - inspección, calibración, Ajustes y Engrases</td>
-                          <td className="p-4 text-center font-medium text-primary">25 puntos</td>
-                          <td className="p-4 text-center font-medium text-primary">53 puntos</td>
-                          <td className="p-4 text-center font-medium text-primary">67 puntos</td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Líquido de los frenos</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Aceite hidráulico</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Filtro de aceite de retorno hidráulico</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Aceite diferencial y transmisión</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Reemplazo Grasa para cojinetes de ruedas</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-muted-foreground">-</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Inspección Partes de goma del cilindro principal (insp.)</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                        <tr className="hover:bg-muted/40">
-                          <td className="p-4 text-muted-foreground">Inspección Partes de goma del cilindro de la rueda (insp.)</td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                          <td className="p-4 text-center text-primary"><Check className="w-5 h-5 mx-auto" /></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  )}
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

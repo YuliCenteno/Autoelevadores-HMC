@@ -3,140 +3,182 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Wrench, Shield, Cog, Search, Droplet, Truck, Clock, MapPin, Award, Calendar, Building2, Headphones, TrendingUp, Users, Package, Phone, Mail, MapPin as MapPinIcon, AlarmClock as ClockIcon, MessageCircle } from 'lucide-react';
+import { 
+  Wrench, Shield, Cog, Search, Droplet, Truck, Clock, MapPin, 
+  Award, Calendar, Building2, Headphones, TrendingUp, Users, 
+  Package, Phone, Mail, MapPin as MapPinIcon, AlarmClock as ClockIcon 
+} from 'lucide-react';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import ServiceCard from '@/components/ServiceCard.jsx';
 import BenefitCard from '@/components/BenefitCard.jsx';
 import BrandsCarousel from '@/components/BrandsCarousel.jsx';
-
 import StatCard from '@/components/StatCard.jsx';
 import GalleryImage from '@/components/GalleryImage.jsx';
 import ContactForm from '@/components/ContactForm.jsx';
 
 function HomePage() {
-  const services = [{
-    icon: Wrench,
-    title: 'Reparación',
-    description: 'Reparación integral de autoelevadores de todas las marcas y modelos con repuestos originales y garantía.'
-  }, {
-    icon: Shield,
-    title: 'Mantenimiento Preventivo',
-    description: 'Planes de mantenimiento programado para maximizar la vida útil de sus equipos y prevenir fallas.'
-  }, {
-    icon: Cog,
-    title: 'Service Técnico',
-    description: 'Service completo con revisión de sistemas hidráulicos, eléctricos, mecánicos y de seguridad.'
-  }, {
-    icon: Search,
-    title: 'Diagnóstico de Fallas',
-    description: 'Diagnóstico preciso y rápido de fallas mediante equipamiento especializado y técnicos certificados.'
-  }, {
-    icon: Droplet,
-    title: 'Reparaciones Hidráulicas y Mecánicas',
-    description: 'Especialistas en sistemas hidráulicos, transmisiones, motores y componentes mecánicos.'
-  }, {
-    icon: Truck,
-    title: 'Alquiler',
-    description: 'Alquiler de autoelevadores para cubrir necesidades temporales durante mantenimientos o picos de trabajo.'
-  }];
+  const services = [
+    {
+      icon: Wrench,
+      title: 'Reparación de Autoelevadores',
+      description: 'Reparación integral de autoelevadores de todas las marcas y modelos con repuestos originales y garantía en Córdoba.'
+    },
+    {
+      icon: Shield,
+      title: 'Mantenimiento Preventivo',
+      description: 'Planes de mantenimiento programado para maximizar la vida útil de sus equipos y prevenir fallas costosas.'
+    },
+    {
+      icon: Cog,
+      title: 'Service Técnico Especializado',
+      description: 'Service completo con revisión de sistemas hidráulicos, eléctricos, mecánicos y sistemas de seguridad.'
+    },
+    {
+      icon: Search,
+      title: 'Diagnóstico de Fallas',
+      description: 'Diagnóstico preciso y rápido mediante equipamiento especializado y técnicos certificados en planta.'
+    },
+    {
+      icon: Droplet,
+      title: 'Reparaciones Hidráulicas y Mecánicas',
+      description: 'Especialistas en cilindros hidráulicos, transmisiones, mangueras, motores y componentes mecánicos.'
+    },
+    {
+      icon: Truck,
+      title: 'Alquiler de Mulas y Autoelevadores',
+      description: 'Alquiler de autoelevadores para cubrir necesidades temporales durante mantenimientos o picos de trabajo.'
+    }
+  ];
 
-  const benefits = [{
-    icon: Clock,
-    title: 'Atención rápida',
-    description: 'Respuesta en menos de 24 horas para emergencias y servicios urgentes.'
-  }, {
-    icon: MapPin,
-    title: 'Servicio a domicilio',
-    description: 'Nos trasladamos a su planta o depósito en toda la zona metropolitana.'
-  }, {
-    icon: Award,
-    title: 'Técnicos especializados',
-    description: 'Personal certificado con amplia experiencia en todas las marcas.'
-  }, {
-    icon: Calendar,
-    title: 'Mantenimiento preventivo',
-    description: 'Planes personalizados para evitar paradas no programadas.'
-  }, {
-    icon: Building2,
-    title: 'Soluciones para empresas',
-    description: 'Contratos corporativos con condiciones preferenciales.'
-  }, {
-    icon: Headphones,
-    title: 'Asistencia profesional',
-    description: 'Asesoramiento técnico y soporte continuo para su operación.'
-  }];
+  const benefits = [
+    {
+      icon: Clock,
+      title: 'Atención rápida',
+      description: 'Respuesta en menos de 24 horas para emergencias y servicios urgentes en Córdoba y alrededores.'
+    },
+    {
+      icon: MapPin,
+      title: 'Servicio a domicilio',
+      description: 'Nos trasladamos a su planta, taller o depósito en toda la zona metropolitana.'
+    },
+    {
+      icon: Award,
+      title: 'Técnicos especializados',
+      description: 'Personal certificado con más de 30 años de experiencia en todas las marcas del mercado.'
+    },
+    {
+      icon: Calendar,
+      title: 'Mantenimiento preventivo',
+      description: 'Planes personalizados para evitar paradas no programadas en su cadena logística.'
+    },
+    {
+      icon: Building2,
+      title: 'Soluciones para empresas',
+      description: 'Contratos corporativos y de flota con condiciones comerciales preferenciales.'
+    },
+    {
+      icon: Headphones,
+      title: 'Asistencia profesional',
+      description: 'Asesoramiento técnico directo y soporte continuo para toda su operación.'
+    }
+  ];
 
-  const galleryImages = [{
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_2.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_1.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.36_PM_2.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.34_PM_3.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.34_PM.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.34_PM_2.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_5.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_1.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.32_PM_1.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.32_PM.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_9.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_7.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942807/WhatsApp_Image_2026-05-20_at_9.02.36_PM.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.36_PM_1.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_3.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_11.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_3.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_10.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_4.jpg',
-    alt: ''
-  }, {
-    src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_12.jpg',
-    alt: ''
-  }];
+  // Agregamos alts con sentido SEO y descriptivo para cada trabajo
+  const galleryImages = [
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg',
+      alt: 'Mantenimiento de autoelevador en Córdoba'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_2.jpg',
+      alt: 'Reparación de sistema hidráulico de autoelevador'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_1.jpg',
+      alt: 'Revisión técnica de autoelevador en domicilio'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.36_PM_2.jpg',
+      alt: 'Service preventivo a domicilio para autoelevadores'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.34_PM_3.jpg',
+      alt: 'Cambio de repuestos originales de autoelevadores'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM.jpg',
+      alt: 'Diagnóstico de motor de autoelevador'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.34_PM.jpg',
+      alt: 'Reparación de torre y uñas de elevación'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.34_PM_2.jpg',
+      alt: 'Servicio mecánico para mulitas mecánicas'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM.jpg',
+      alt: 'Mantenimiento de flota de autoelevadores industriales'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_5.jpg',
+      alt: 'Atención técnica de emergencias de autoelevadores'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_1.jpg',
+      alt: 'Ajuste de dirección y frenos de minicargadora'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.32_PM_1.jpg',
+      alt: 'Reparación general de bobcat'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.32_PM.jpg',
+      alt: 'Service preventivo'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_9.jpg',
+      alt: 'Trabajos de pintura autoelevador'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_7.jpg',
+      alt: 'Inspección de sistemas de seguridad en maquinaria pesada'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942807/WhatsApp_Image_2026-05-20_at_9.02.36_PM.jpg',
+      alt: 'Reparación de cilindros hidráulicos en Córdoba'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.36_PM_1.jpg',
+      alt: 'Traslado de autoelevador Cordoba'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_3.jpg',
+      alt: 'Pintura Autoelevador Córdoba'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_11.jpg',
+      alt: 'Ajuste e inspección técnica integral'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_3.jpg',
+      alt: 'Pintura Autoelevador'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_10.jpg',
+      alt: 'Servicio de mantenimiento integral HMC Servicios'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_4.jpg',
+      alt: 'Verificación de componentes mecánicos y lubricación'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_12.jpg',
+      alt: 'Reparación especializada de mulas y elevadores'
+    }
+  ];
 
   const handleWhatsApp = () => {
     window.open(`https://wa.me/5493513488829?text=Hola,%20vi%20la%20p%C3%A1gina%20web%20y%20necesito%20informaci%C3%B3n%20sobre%20la%20reparaci%C3%B3n%20de%20un%20autoelevador.`, '_blank');
@@ -145,8 +187,8 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>HMC Servicios - Servicio Tecnico y Mantenimiento de Autoelevadores</title>
-        <meta name="description" content="HMC Servicios: mantenimiento, reparación y alquiler de autoelevadores. Más de 30 años de experiencia. Atención rápida y servicio a domicilio." />
+        <title>Servicio Técnico y Mantenimiento de Autoelevadores en Córdoba | HMC Servicios</title>
+        <meta name="description" content="HMC Servicios: servicio técnico, reparación, mantenimiento preventivo y alquiler de autoelevadores en Córdoba. Más de 30 años de experiencia. Atención a domicilio." />
       </Helmet>
 
       <Header />
@@ -154,16 +196,20 @@ function HomePage() {
       <main className="pt-20">
         <section className="relative min-h-[100dvh] flex items-center bg-gradient-to-br from-muted via-background to-background">
           <div className="absolute inset-0 overflow-hidden">
-            <img src="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" alt="Autoelevador industrial en operación" className="w-full h-full object-cover opacity-10" />
+            <img 
+              src="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" 
+              alt="Servicio técnico de autoelevadores industrias en Córdoba" 
+              className="w-full h-full object-cover opacity-10" 
+            />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="max-w-3xl">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                  Servicio tecnico y mantenimiento de autoelevadores
+                  Servicio técnico y mantenimiento de autoelevadores en Córdoba
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                  Mas de 30 años brindando soluciones integrales para su operacion logistica. Mantenimiento preventivo, reparaciones y alquiler de equipos.
+                  Más de 30 años brindando soluciones integrales para su operación logística. Mantenimiento preventivo, reparaciones hidráulicas y alquiler de equipos.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]">
@@ -189,7 +235,7 @@ function HomePage() {
           </div>
         </section>
 
-                {/* Carrusel de Marcas */}
+        {/* Carrusel de Marcas */}
         <BrandsCarousel />
 
         <section id="servicios" className="py-20 bg-background">
@@ -197,7 +243,7 @@ function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestros servicios</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Soluciones completas para el mantenimiento y operacion de su flota de autoelevadores
+                Soluciones completas para el mantenimiento y operación de su flota de autoelevadores en Córdoba
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -212,13 +258,13 @@ function HomePage() {
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Sobre nosotros</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  HMC Servicios es una empresa especializada en el servicio tecnico, mantenimiento y reparacion de autoelevadores con mas de 30 años de trayectoria en el mercado argentino.
+                  HMC Servicios es una empresa especializada en el servicio técnico, mantenimiento y reparación de autoelevadores con más de 30 años de trayectoria en la provincia de Córdoba y zonas aledañas.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Brindamos servicio tecnico especializado en reparacion y mantenimiento de autoelevadores, trabajando con compromiso, experiencia y soluciones eficientes para garantizar la continuidad operativa de cada cliente.
+                  Brindamos servicio técnico especializado en reparación y mantenimiento de autoelevadores, trabajando con compromiso, experiencia y soluciones eficientes para garantizar la continuidad operativa de cada cliente.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Trabajamos con empresas de logistica, industrias, depositos y centros de distribucion, ofreciendo planes de mantenimiento preventivo personalizados y servicio de emergencia las 24 horas.
+                  Trabajamos con empresas de logística, industrias, depósitos y centros de distribución, ofreciendo planes de mantenimiento preventivo personalizados y servicio de emergencia a domicilio.
                 </p>
               </motion.div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -230,7 +276,7 @@ function HomePage() {
           </div>
         </section>
 
-                {/* Sección Video Reel */}
+        {/* Sección Video Reel */}
         <section className="py-16 bg-background border-y border-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -244,7 +290,7 @@ function HomePage() {
                   Mirá cómo trabajamos
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Reparación y mantenimiento en tiempo real. Nos enfocamos en cuidar cada detalle técnico para asegurar la máxima durabilidad de tus equipos.
+                  Reparación y mantenimiento en tiempo real en tu planta o depósito. Nos enfocamos en cuidar cada detalle técnico para asegurar la máxima durabilidad de tus equipos.
                 </p>
                 <div className="pt-2">
                   <Button
@@ -273,7 +319,6 @@ function HomePage() {
                     playsInline
                     preload="metadata"
                     className="w-full h-full object-cover"
-                    poster="OPCIONAL_URL_DE_IMAGEN_DE_PORTADA.jpg"
                   >
                     Tu navegador no soporta el formato de video.
                   </video>
@@ -289,7 +334,7 @@ function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Galería de trabajos</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Algunos de nuestros proyectos y servicios realizados
+                Algunos de nuestros proyectos y servicios de reparación realizados
               </p>
             </div>
             <div className="w-full">
@@ -301,9 +346,9 @@ function HomePage() {
         <section id="beneficios" className="py-20 bg-muted">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">¿Por que elegirnos?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">¿Por qué elegirnos?</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Beneficios que nos distinguen en el mercado
+                Beneficios que nos distinguen en el mercado industrial de Córdoba
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -315,9 +360,9 @@ function HomePage() {
         <section id="contacto" className="py-20 bg-muted">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Contactenos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Contáctenos</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Estamos listos para atender sus consultas y brindarle el mejor servicio
+                Estamos listos para atender sus consultas y brindarle el mejor servicio técnico
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -326,12 +371,12 @@ function HomePage() {
               </div>
               <div className="space-y-8">
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Informacion de contacto</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">Información de contacto</h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-medium text-foreground">Telefono</p>
+                        <p className="font-medium text-foreground">Teléfono</p>
                         <a href="tel:+5493513488829" className="text-muted-foreground hover:text-primary transition-colors duration-200">
                           +54 9 3513 48-8829
                         </a>
@@ -349,14 +394,14 @@ function HomePage() {
                     <div className="flex items-start gap-3">
                       <MapPinIcon className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-medium text-foreground">Direccion</p>
-                        <p className="text-muted-foreground">C. del Riego & Av. Rancagua</p>
+                        <p className="font-medium text-foreground">Dirección</p>
+                        <p className="text-muted-foreground">C. del Riego & Av. Rancagua, Córdoba, Argentina</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <ClockIcon className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-medium text-foreground">Horario de atencion</p>
+                        <p className="font-medium text-foreground">Horario de atención</p>
                         <p className="text-muted-foreground">Lunes a viernes de 8:30 a 17:00 hs</p>
                       </div>
                     </div>
@@ -364,6 +409,7 @@ function HomePage() {
                 </div>
                 <div className="bg-card border border-border rounded-2xl overflow-hidden h-64">
                   <iframe
+                    title="Ubicación de HMC Servicios en Google Maps"
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3407.642236502509!2d-64.14692022439556!3d-31.34125207429647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIwJzI4LjUiUyA2NMKwMDgnMzkuNiJX!5e0!3m2!1sen!2sar!4v1786998977187!5m2!1sen!2sar"
                     width="600"
                     height="450"
