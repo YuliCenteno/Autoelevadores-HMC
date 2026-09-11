@@ -46,7 +46,7 @@ function HomePage() {
     },
     {
       icon: Truck,
-      title: 'Alquiler de Mulas y Autoelevadores',
+      title: 'Alquiler de Autoelevadores',
       description: 'Alquiler de autoelevadores para cubrir necesidades temporales durante mantenimientos o picos de trabajo.'
     }
   ];
@@ -116,7 +116,7 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.34_PM_2.jpg',
-      alt: 'Servicio mecánico para mulitas mecánicas'
+      alt: 'Servicio mecánico para autoelevadores'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM.jpg',
@@ -176,7 +176,7 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_12.jpg',
-      alt: 'Reparación especializada de mulas y elevadores'
+      alt: 'Reparación especializada de autoelevadores'
     }
   ];
 
