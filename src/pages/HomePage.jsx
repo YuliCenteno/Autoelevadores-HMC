@@ -187,8 +187,23 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Servicio Técnico y Mantenimiento de Autoelevadores en Córdoba | HMC Servicios</title>
-        <meta name="description" content="HMC Servicios: servicio técnico, reparación, mantenimiento preventivo y alquiler de autoelevadores en Córdoba. Más de 30 años de experiencia. Atención a domicilio." />
+        <title>Servicio Técnico de Autoelevadores, Apiladoras y Montacargas en Córdoba | HMC Servicios</title>
+        <meta
+          name="description"
+          content="Servicio técnico, reparación y mantenimiento de autoelevadores, apiladoras, bobcats y retroexcavadoras en Córdoba. Diagnóstico, repuestos originales y atención a domicilio para empresas."
+        />
+        <link rel="canonical" href="https://autoelevadoreshmc.com.ar/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://autoelevadoreshmc.com.ar/" />
+        <meta property="og:title" content="Servicio Técnico de Autoelevadores y Apiladoras en Córdoba | HMC Servicios" />
+        <meta property="og:description" content="Reparación, mantenimiento preventivo y diagnóstico de autoelevadores, apiladoras, bobcats y retroexcavadoras en Córdoba. Atención a domicilio y soporte para empresas." />
+        <meta property="og:image" content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" />
+        <meta property="og:locale" content="es_AR" />
+        <meta property="og:site_name" content="Autoelevadores HMC" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Servicio Técnico de Autoelevadores y Apiladoras en Córdoba | HMC Servicios" />
+        <meta name="twitter:description" content="Reparación, mantenimiento preventivo y diagnóstico de autoelevadores, montacargas y maquinaria industrial en Córdoba." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" />
       </Helmet>
 
       <Header />

@@ -30,11 +30,23 @@ function ContactoPage() {
   return (
     <>
       <Helmet>
-        <title>Contacto - HMC Servicios</title>
+        <title>Contacto | Servicio Técnico de Autoelevadores en Córdoba | HMC Servicios</title>
         <meta
           name="description"
-          content="Contáctenos para solicitar presupuesto, agendar un servicio o resolver sus consultas. Atención personalizada y respuesta rápida."
+          content="Solicite presupuesto o agende un servicio técnico para autoelevadores, apiladoras, bobcats y retroexcavadoras en Córdoba. Atendemos empresas, depósitos y plantas industriales."
         />
+        <link rel="canonical" href="https://autoelevadoreshmc.com.ar/contacto" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://autoelevadoreshmc.com.ar/contacto" />
+        <meta property="og:title" content="Contacto | Servicio Técnico de Autoelevadores en Córdoba | HMC Servicios" />
+        <meta property="og:description" content="Solicite presupuesto o agende un servicio técnico para autoelevadores, apiladoras, bobcats y retroexcavadoras en Córdoba." />
+        <meta property="og:image" content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" />
+        <meta property="og:locale" content="es_AR" />
+        <meta property="og:site_name" content="Autoelevadores HMC" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contacto | Servicio Técnico de Autoelevadores en Córdoba | HMC Servicios" />
+        <meta name="twitter:description" content="Solicite presupuesto o agende un servicio técnico para autoelevadores, montacargas y apiladoras en Córdoba." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" />
       </Helmet>
 
       <Header />
