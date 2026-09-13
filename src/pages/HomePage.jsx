@@ -107,6 +107,26 @@ function HomePage() {
       alt: 'Cambio de repuestos originales de autoelevadores'
     },
     {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1789323981/pa3.jpg',
+      alt: 'Revisión técnica de autoelevador en domicilio'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1789323982/pa2.jpg',
+      alt: 'Revisión técnica de autoelevador en domicilio'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1789323981/pa1.jpg',
+      alt: 'Revisión técnica de autoelevador en domicilio'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1789323981/pa4.jpg',
+      alt: 'Revisión técnica de autoelevador en domicilio'
+    },
+    {
+      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1789323981/pa5.jpg',
+      alt: 'Revisión técnica de autoelevador en domicilio'
+    },
+    {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM.jpg',
       alt: 'Diagnóstico de motor de autoelevador'
     },
