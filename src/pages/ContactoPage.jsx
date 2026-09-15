@@ -30,23 +30,61 @@ function ContactoPage() {
   return (
     <>
       <Helmet>
-        <title>Contacto | Servicio Técnico de Autoelevadores en Córdoba | HMC Servicios</title>
+        <title>
+          Contacto | Autoelevadores HMC | Servicio Técnico en Córdoba
+        </title>
+
         <meta
           name="description"
-          content="Solicite presupuesto o agende un servicio técnico para autoelevadores, apiladoras, bobcats y retroexcavadoras en Córdoba. Atendemos empresas, depósitos y plantas industriales."
+          content="Contacte a Autoelevadores HMC para solicitar presupuesto, reparación, mantenimiento o servicio técnico de autoelevadores en Córdoba."
         />
-        <link rel="canonical" href="https://autoelevadoreshmc.com.ar/contacto" />
+
+        <link
+          rel="canonical"
+          href="https://autoelevadoreshmc.com.ar/contacto"
+        />
+
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://autoelevadoreshmc.com.ar/contacto" />
-        <meta property="og:title" content="Contacto | Servicio Técnico de Autoelevadores en Córdoba | HMC Servicios" />
-        <meta property="og:description" content="Solicite presupuesto o agende un servicio técnico para autoelevadores, apiladoras, bobcats y retroexcavadoras en Córdoba." />
-        <meta property="og:image" content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" />
+
+        <meta
+          property="og:url"
+          content="https://autoelevadoreshmc.com.ar/contacto"
+        />
+
+        <meta
+          property="og:title"
+          content="Contacto | Autoelevadores HMC | Servicio Técnico en Córdoba"
+        />
+
+        <meta
+          property="og:description"
+          content="Solicite presupuesto o consulte por reparación, mantenimiento y servicio técnico de autoelevadores en Córdoba."
+        />
+
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg"
+        />
+
         <meta property="og:locale" content="es_AR" />
         <meta property="og:site_name" content="Autoelevadores HMC" />
+
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contacto | Servicio Técnico de Autoelevadores en Córdoba | HMC Servicios" />
-        <meta name="twitter:description" content="Solicite presupuesto o agende un servicio técnico para autoelevadores, montacargas y apiladoras en Córdoba." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" />
+
+        <meta
+          name="twitter:title"
+          content="Contacto | Autoelevadores HMC | Servicio Técnico en Córdoba"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Contacte a Autoelevadores HMC para reparación, mantenimiento y servicio técnico de autoelevadores en Córdoba."
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg"
+        />
       </Helmet>
 
       <Header />
@@ -54,65 +92,92 @@ function ContactoPage() {
       <main className="pt-20">
         <section className="py-20 bg-gradient-to-br from-muted via-background to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* ENCABEZADO */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Contáctenos</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Contacte a Autoelevadores HMC
+              </h1>
+
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Estamos listos para atender sus consultas y brindarle el mejor servicio técnico para sus autoelevadores
+                Estamos listos para atender sus consultas y brindarle
+                servicio técnico para sus autoelevadores.
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-              {/* Formulario de Contacto */}
+
+              {/* FORMULARIO DE CONTACTO */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
-                  <h2 className="text-2xl font-bold text-foreground mb-6">Envíenos un mensaje</h2>
+                  <h2 className="text-2xl font-bold text-foreground mb-6">
+                    Envíenos un mensaje
+                  </h2>
+
                   <ContactForm />
                 </div>
               </motion.div>
 
-              {/* Detalles de Contacto y Mapa */}
+              {/* DETALLES DE CONTACTO Y MAPA */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="space-y-6"
               >
+
+                {/* INFORMACIÓN DE CONTACTO */}
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
-                  <h2 className="text-2xl font-bold text-foreground mb-6">Información de contacto</h2>
+                  <h2 className="text-2xl font-bold text-foreground mb-6">
+                    Información de contacto
+                  </h2>
+
                   <div className="space-y-6">
-                    {/* Teléfono */}
+
+                    {/* TELÉFONO */}
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Phone className="w-6 h-6 text-primary" />
                       </div>
+
                       <div>
-                        <p className="font-semibold text-foreground mb-1">Teléfono</p>
+                        <p className="font-semibold text-foreground mb-1">
+                          Teléfono
+                        </p>
+
                         <a
                           href="tel:+5493513488829"
                           className="text-muted-foreground hover:text-primary transition-colors duration-200"
                         >
                           +54 9 3513 48-8829
                         </a>
-                        <p className="text-sm text-muted-foreground mt-1">Lunes a viernes de 8:30 a 17:00 hs</p>
+
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Lunes a viernes de 8:30 a 17:00 hs
+                        </p>
                       </div>
                     </div>
 
-                    {/* WhatsApp */}
+                    {/* WHATSAPP */}
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <MessageCircle className="w-6 h-6 text-primary" />
                       </div>
+
                       <div>
-                        <p className="font-semibold text-foreground mb-1">WhatsApp</p>
+                        <p className="font-semibold text-foreground mb-1">
+                          WhatsApp
+                        </p>
+
                         <Button
                           onClick={handleWhatsApp}
                           className="p-0 h-auto bg-[#25D366] text-white hover:bg-[#20BA5A] px-4 py-2 rounded-lg transition-all duration-200 active:scale-[0.98]"
@@ -120,55 +185,78 @@ function ContactoPage() {
                           <WhatsAppIcon />
                           WhatsApp
                         </Button>
-                        <p className="text-sm text-muted-foreground mt-1">Respuesta inmediata</p>
+
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Comuníquese directamente con nosotros
+                        </p>
                       </div>
                     </div>
 
-                    {/* Email */}
+                    {/* EMAIL */}
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Mail className="w-6 h-6 text-primary" />
                       </div>
+
                       <div>
-                        <p className="font-semibold text-foreground mb-1">Email</p>
+                        <p className="font-semibold text-foreground mb-1">
+                          Email
+                        </p>
+
                         <a
                           href="mailto:hmcservicios2014@gmail.com"
                           className="text-muted-foreground hover:text-primary transition-colors duration-200"
                         >
                           hmcservicios2014@gmail.com
                         </a>
-                        <p className="text-sm text-muted-foreground mt-1">Respuesta en 24 horas</p>
+
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Envíenos su consulta o solicitud de presupuesto
+                        </p>
                       </div>
                     </div>
 
-                    {/* Dirección */}
+                    {/* DIRECCIÓN */}
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <MapPin className="w-6 h-6 text-primary" />
                       </div>
+
                       <div>
-                        <p className="font-semibold text-foreground mb-1">Dirección</p>
-                        <p className="text-muted-foreground">C. del Riego & Av. Rancagua</p>
+                        <p className="font-semibold text-foreground mb-1">
+                          Dirección
+                        </p>
+
+                        <p className="text-muted-foreground">
+                          C. del Riego & Av. Rancagua
+                        </p>
                       </div>
                     </div>
 
-                    {/* Horario */}
+                    {/* HORARIO */}
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Clock className="w-6 h-6 text-primary" />
                       </div>
+
                       <div>
-                        <p className="font-semibold text-foreground mb-1">Horario de atención</p>
-                        <p className="text-muted-foreground">Lunes a viernes de 8:30 a 17:00 hs</p>
+                        <p className="font-semibold text-foreground mb-1">
+                          Horario de atención
+                        </p>
+
+                        <p className="text-muted-foreground">
+                          Lunes a viernes de 8:30 a 17:00 hs
+                        </p>
                       </div>
                     </div>
+
                   </div>
                 </div>
 
-                {/* Contenedor Iframe del Mapa */}
+                {/* MAPA */}
                 <div className="bg-card border border-border rounded-2xl overflow-hidden h-80 shadow-sm">
                   <iframe
-                    title="Ubicación HMC Servicios"
+                    title="Ubicación de Autoelevadores HMC en Córdoba"
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3407.642236502509!2d-64.14692022439556!3d-31.34125207429647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIwJzI4LjUiUyA2NMKwMDgnMzkuNicJX!5e0!3m2!1sen!2sar!4v1786998977187!5m2!1sen!2sar"
                     className="w-full h-full border-0"
                     allowFullScreen
@@ -176,10 +264,11 @@ function ContactoPage() {
                     referrerPolicy="strict-origin-when-cross-origin"
                   />
                 </div>
+
               </motion.div>
             </div>
 
-            {/* CTA Urgencias */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -187,11 +276,18 @@ function ContactoPage() {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 md:p-12 text-center border border-primary/20"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">¿Necesita atención urgente?</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                ¿Necesita atención para su autoelevador?
+              </h2>
+
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                Comuníquese con nosotros y coordinamos la atención de su equipo a la brevedad
+                Comuníquese con Autoelevadores HMC y coordinamos la atención
+                de su equipo.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+                {/* LLAMAR */}
                 <Button
                   asChild
                   size="lg"
@@ -202,6 +298,8 @@ function ContactoPage() {
                     Llamar ahora
                   </a>
                 </Button>
+
+                {/* WHATSAPP */}
                 <Button
                   onClick={handleWhatsApp}
                   size="lg"
@@ -210,8 +308,10 @@ function ContactoPage() {
                   <WhatsAppIcon />
                   WhatsApp
                 </Button>
+
               </div>
             </motion.div>
+
           </div>
         </section>
       </main>
