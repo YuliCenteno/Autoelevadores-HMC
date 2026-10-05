@@ -443,8 +443,8 @@ function HomePage() {
                       <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-foreground">Email</p>
-                        <a href="mailto:hmcservicios2014@gmail.com" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                          hmcservicios2014@gmail.com
+                        <a href="mailto:hmcserviciosg2014@gmail.com" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+                          hmcserviciosg2014@gmail.com
                         </a>
                       </div>
                     </div>

@@ -204,10 +204,10 @@ function ContactoPage() {
                         </p>
 
                         <a
-                          href="mailto:hmcservicios2014@gmail.com"
+                          href="mailto:hmcserviciosg2014@gmail.com"
                           className="text-muted-foreground hover:text-primary transition-colors duration-200"
                         >
-                          hmcservicios2014@gmail.com
+                          hmcserviciosg2014@gmail.com
                         </a>
 
                         <p className="text-sm text-muted-foreground mt-1">

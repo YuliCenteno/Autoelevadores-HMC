@@ -48,11 +48,11 @@ function Footer() {
                 <span>+54 9 3513 48-8829</span>
               </a>
               <a
-                href="mailto:hmcservicios2014@gmail.com"
+                href="mailto:hmcserviciosg2014@gmail.com"
                 className="flex items-center gap-2 text-sm text-secondary-foreground/80 hover:text-primary transition-colors duration-200"
               >
                 <Mail className="w-4 h-4" />
-                <span>hmcservicios2014@gmail.com</span>
+                <span>hmcserviciosg2014@gmail.com</span>
               </a>
               <div className="flex items-start gap-2 text-sm text-secondary-foreground/80">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
