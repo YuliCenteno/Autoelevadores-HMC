@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { trackContactClick } from '@/lib/analytics';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import ContactForm from '@/components/ContactForm.jsx';
@@ -20,6 +21,7 @@ const WhatsAppIcon = ({ className = "w-5 h-5 mr-2" }) => (
 
 function ContactoPage() {
   const handleWhatsApp = () => {
+    trackContactClick('whatsapp');
     window.open(
       'https://wa.me/5493513488829?text=Hola,%20vi%20la%20p%C3%A1gina%20web%20y%20necesito%20informaci%C3%B3n%20sobre%20la%20reparaci%C3%B3n%20de%20un%20autoelevador.',
       '_blank',
@@ -31,12 +33,12 @@ function ContactoPage() {
     <>
       <Helmet>
         <title>
-          Contacto | Autoelevadores HMC | Servicio Técnico en Córdoba
+          Contacto y presupuestos | Autoelevadores HMC Córdoba
         </title>
 
         <meta
           name="description"
-          content="Contacte a Autoelevadores HMC para solicitar presupuesto, reparación, mantenimiento o servicio técnico de autoelevadores en Córdoba."
+          content="Solicite presupuesto a Autoelevadores HMC para reparación, mantenimiento o alquiler de autoelevadores en Córdoba. Atención en taller y en su empresa."
         />
 
         <link
@@ -53,12 +55,12 @@ function ContactoPage() {
 
         <meta
           property="og:title"
-          content="Contacto | Autoelevadores HMC | Servicio Técnico en Córdoba"
+          content="Contacto y presupuestos | Autoelevadores HMC Córdoba"
         />
 
         <meta
           property="og:description"
-          content="Solicite presupuesto o consulte por reparación, mantenimiento y servicio técnico de autoelevadores en Córdoba."
+          content="Solicite presupuesto para reparación, mantenimiento o alquiler de autoelevadores en Córdoba. Atención en taller y en las instalaciones del cliente."
         />
 
         <meta
@@ -73,12 +75,12 @@ function ContactoPage() {
 
         <meta
           name="twitter:title"
-          content="Contacto | Autoelevadores HMC | Servicio Técnico en Córdoba"
+          content="Contacto y presupuestos | Autoelevadores HMC Córdoba"
         />
 
         <meta
           name="twitter:description"
-          content="Contacte a Autoelevadores HMC para reparación, mantenimiento y servicio técnico de autoelevadores en Córdoba."
+          content="Solicite presupuesto para reparación, mantenimiento o alquiler de autoelevadores en Córdoba."
         />
 
         <meta
@@ -101,12 +103,11 @@ function ContactoPage() {
               className="text-center mb-16"
             >
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Contacte a Autoelevadores HMC
+                Contacto para reparación y mantenimiento de autoelevadores en Córdoba
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Estamos listos para atender sus consultas y brindarle
-                servicio técnico para sus autoelevadores.
+                Solicite un presupuesto e indique el tipo de autoelevador, la tarea requerida y si necesita atención en el taller o en las instalaciones de su empresa.
               </p>
             </motion.div>
 
@@ -156,6 +157,7 @@ function ContactoPage() {
 
                         <a
                           href="tel:+5493513488829"
+                          onClick={() => trackContactClick('phone')}
                           className="text-muted-foreground hover:text-primary transition-colors duration-200"
                         >
                           +54 9 3513 48-8829
@@ -205,6 +207,7 @@ function ContactoPage() {
 
                         <a
                           href="mailto:hmcserviciosg2014@gmail.com"
+                          onClick={() => trackContactClick('email')}
                           className="text-muted-foreground hover:text-primary transition-colors duration-200"
                         >
                           hmcserviciosg2014@gmail.com
@@ -228,7 +231,7 @@ function ContactoPage() {
                         </p>
 
                         <p className="text-muted-foreground">
-                          C. del Riego & Av. Rancagua
+                          C. del Riego &amp; Av. Rancagua, Córdoba, Argentina
                         </p>
                       </div>
                     </div>
@@ -293,7 +296,10 @@ function ContactoPage() {
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]"
                 >
-                  <a href="tel:+5493513488829">
+                  <a
+                    href="tel:+5493513488829"
+                    onClick={() => trackContactClick('phone')}
+                  >
                     <Phone className="w-5 h-5 mr-2" />
                     Llamar ahora
                   </a>

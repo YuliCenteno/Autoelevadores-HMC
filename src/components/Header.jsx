@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { trackContactClick } from '@/lib/analytics';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,6 +17,7 @@ function Header() {
   const isActive = (path) => location.pathname === path;
 
   const handleWhatsApp = () => {
+    trackContactClick('whatsapp');
     window.open(
       'https://wa.me/5493513488829?text=Hola,%20vi%20la%20p%C3%A1gina%20web%20y%20necesito%20informaci%C3%B3n%20sobre%20la%20reparaci%C3%B3n%20de%20un%20autoelevador.',
       '_blank',
@@ -30,13 +32,10 @@ function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo / Isotipo */}
           <Link to="/" className="flex items-center gap-3">
-            <span className="text-3xl font-black tracking-tight text-yellow-500 leading-none select-none">
-              HMC
-            </span>
             <div>
-              <h1 className="text-xl font-bold text-foreground leading-tight">
-                Servicios
-              </h1>
+              <span className="text-lg md:text-xl font-black tracking-tight text-yellow-500 leading-tight select-none">
+                Autoelevadores HMC
+              </span>
               <p className="text-xs text-muted-foreground">
                 Servicio técnico especializado
               </p>
@@ -67,6 +66,7 @@ function Header() {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:+5493513488829"
+              onClick={() => trackContactClick('phone')}
               className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
             >
               <Phone className="w-4 h-4" />
@@ -91,7 +91,8 @@ function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-200"
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -118,6 +119,7 @@ function Header() {
             ))}
             <a
               href="tel:+5493513488829"
+              onClick={() => trackContactClick('phone')}
               className="flex items-center gap-2 py-2 px-4 text-sm font-medium text-foreground hover:bg-muted rounded-lg transition-all duration-200"
             >
               <Phone className="w-4 h-4" />

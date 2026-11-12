@@ -2,6 +2,9 @@
   RewriteEngine On
   RewriteBase /
 
+  RewriteCond %{HTTP_HOST} ^www\.autoelevadoreshmc\.com\.ar$ [NC]
+  RewriteRule ^ https://autoelevadoreshmc.com.ar%{REQUEST_URI} [R=301,L]
+
   # 1. Si el archivo o carpeta existe físicamente (ej: sitemap.xml, favicon.ico, imágenes), servirlo directamente
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

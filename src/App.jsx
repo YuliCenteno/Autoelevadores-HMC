@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter as Router, Link } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
+import { trackContactClick } from '@/lib/analytics';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ServiciosPage from './pages/ServiciosPage.jsx';
@@ -8,6 +9,7 @@ import ContactoPage from './pages/ContactoPage.jsx';
 
 function App() {
   const handleWhatsApp = () => {
+    trackContactClick('whatsapp');
     window.open(
       'https://wa.me/5493513488829?text=Hola,%20vi%20la%20p%C3%A1gina%20web%20y%20necesito%20informaci%C3%B3n%20sobre%20la%20reparaci%C3%B3n%20de%20un%20autoelevador.',
       '_blank',

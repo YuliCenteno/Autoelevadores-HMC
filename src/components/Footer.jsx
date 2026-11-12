@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { trackContactClick } from '@/lib/analytics';
 
 function Footer() {
   const handleWhatsApp = () => {
+    trackContactClick('whatsapp');
     window.open(
       'https://wa.me/5493513488829?text=Hola,%20vi%20la%20p%C3%A1gina%20web%20y%20necesito%20informaci%C3%B3n%20sobre%20la%20reparaci%C3%B3n%20de%20un%20autoelevador.',
       '_blank',
@@ -16,15 +18,10 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            {/* Identidad de marca (mismo estilo del header) */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-3xl font-black tracking-tight text-yellow-500 leading-none select-none">
-                HMC
-              </span>
-
               <div>
                 <span className="block text-xl font-bold text-secondary-foreground leading-tight">
-                  Servicios
+                  Autoelevadores HMC
                 </span>
                 <p className="text-xs text-secondary-foreground/70">
                   Servicio técnico especializado
@@ -33,7 +30,7 @@ function Footer() {
             </div>
 
             <p className="text-sm text-secondary-foreground/80 leading-relaxed mb-4">
-              Servicio técnico especializado en mantenimiento y reparación de autoelevadores con más de 30 años de experiencia.
+              Servicio técnico, reparación, mantenimiento y alquiler de autoelevadores en Córdoba.
             </p>
           </div>
 
@@ -42,6 +39,7 @@ function Footer() {
             <div className="space-y-3">
               <a
                 href="tel:+5493513488829"
+                onClick={() => trackContactClick('phone')}
                 className="flex items-center gap-2 text-sm text-secondary-foreground/80 hover:text-primary transition-colors duration-200"
               >
                 <Phone className="w-4 h-4" />
@@ -49,6 +47,7 @@ function Footer() {
               </a>
               <a
                 href="mailto:hmcserviciosg2014@gmail.com"
+                onClick={() => trackContactClick('email')}
                 className="flex items-center gap-2 text-sm text-secondary-foreground/80 hover:text-primary transition-colors duration-200"
               >
                 <Mail className="w-4 h-4" />
@@ -56,7 +55,7 @@ function Footer() {
               </a>
               <div className="flex items-start gap-2 text-sm text-secondary-foreground/80">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>C. del Riego & Av. Rancagua</span>
+                <span>C. del Riego &amp; Av. Rancagua, Córdoba, Argentina</span>
               </div>
               <button
                 onClick={handleWhatsApp}
@@ -103,7 +102,7 @@ function Footer() {
         <div className="pt-8 border-t border-secondary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-secondary-foreground/60">
-              <p>© {new Date().getFullYear()} HMC Servicios. Todos los derechos reservados.</p>
+              <p>© {new Date().getFullYear()} Autoelevadores HMC. Todos los derechos reservados.</p>
               <span className="hidden sm:inline" aria-hidden="true">·</span>
               <a
                 href="https://github.com/YuliCenteno"
@@ -112,14 +111,6 @@ function Footer() {
                 className="hover:text-primary transition-colors duration-200"
               >
                 Desarrollado por ZCS Systems
-              </a>
-            </div>
-            <div className="flex gap-6">
-              <a href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors duration-200">
-                Política de privacidad
-              </a>
-              <a href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors duration-200">
-                Términos de servicio
               </a>
             </div>
           </div>

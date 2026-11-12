@@ -3,17 +3,16 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { trackContactClick } from '@/lib/analytics';
 import { 
-  Wrench, Shield, Cog, Search, Droplet, Truck, Clock, MapPin, 
-  Award, Calendar, Building2, Headphones, TrendingUp, Users, 
-  Package, Phone, Mail, MapPin as MapPinIcon, AlarmClock as ClockIcon 
+  Wrench, Shield, Cog, Search, Droplet, Truck, MapPin, Calendar, Building2,
+  Phone, Mail, MapPin as MapPinIcon, AlarmClock as ClockIcon
 } from 'lucide-react';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import ServiceCard from '@/components/ServiceCard.jsx';
 import BenefitCard from '@/components/BenefitCard.jsx';
 import BrandsCarousel from '@/components/BrandsCarousel.jsx';
-import StatCard from '@/components/StatCard.jsx';
 import GalleryImage from '@/components/GalleryImage.jsx';
 import ContactForm from '@/components/ContactForm.jsx';
 
@@ -22,69 +21,68 @@ function HomePage() {
     {
       icon: Wrench,
       title: 'Reparación de Autoelevadores',
-      description: 'Reparación integral de autoelevadores de todas las marcas y modelos con repuestos originales y garantía en Córdoba.'
+      description: 'Reparación integral de autoelevadores: evaluamos la falla y coordinamos la atención en taller o en las instalaciones del cliente.'
     },
     {
       icon: Shield,
       title: 'Mantenimiento Preventivo',
-      description: 'Planes de mantenimiento programado para maximizar la vida útil de sus equipos y prevenir fallas costosas.'
+      description: 'Mantenimiento preventivo y correctivo para atender el estado del equipo y las necesidades de operación de cada empresa.'
     },
     {
       icon: Cog,
       title: 'Service Técnico Especializado',
-      description: 'Service completo con revisión de sistemas hidráulicos, eléctricos, mecánicos y sistemas de seguridad.'
+      description: 'Service técnico para autoelevadores, con revisión de sus componentes y coordinación de los trabajos necesarios.'
     },
     {
       icon: Search,
       title: 'Diagnóstico de Fallas',
-      description: 'Diagnóstico preciso y rápido mediante equipamiento especializado y técnicos certificados en planta.'
+      description: 'Revisión de fallas para identificar el problema del autoelevador y definir los pasos de reparación.'
     },
     {
       icon: Droplet,
       title: 'Reparaciones Hidráulicas y Mecánicas',
-      description: 'Especialistas en cilindros hidráulicos, transmisiones, mangueras, motores y componentes mecánicos.'
+      description: 'Reparación hidráulica y mecánica de autoelevadores, según el diagnóstico y el alcance requerido por el equipo.'
     },
     {
       icon: Truck,
       title: 'Alquiler de Autoelevadores',
-      description: 'Alquiler de autoelevadores para cubrir necesidades temporales durante mantenimientos o picos de trabajo.'
+      description: 'Alquiler de autoelevadores para necesidades temporales. Consulte disponibilidad y condiciones para su operación.'
     }
   ];
 
   const benefits = [
     {
-      icon: Clock,
-      title: 'Atención rápida',
-      description: 'Respuesta en menos de 24 horas para emergencias y servicios urgentes en Córdoba y alrededores.'
+      icon: Wrench,
+      title: 'Atención en taller',
+      description: 'Coordinamos la atención de autoelevadores en el taller de Autoelevadores HMC.'
     },
     {
       icon: MapPin,
-      title: 'Servicio a domicilio',
-      description: 'Nos trasladamos a su planta, taller o depósito en toda la zona metropolitana.'
+      title: 'Atención en sus instalaciones',
+      description: 'Atención técnica en las instalaciones de empresas, depósitos y centros de distribución de Córdoba.'
     },
     {
-      icon: Award,
-      title: 'Técnicos especializados',
-      description: 'Personal certificado con más de 30 años de experiencia en todas las marcas del mercado.'
+      icon: Cog,
+      title: 'Servicio enfocado en autoelevadores',
+      description: 'Reparación y mantenimiento técnico de autoelevadores para operaciones empresariales.'
     },
     {
       icon: Calendar,
       title: 'Mantenimiento preventivo',
-      description: 'Planes personalizados para evitar paradas no programadas en su cadena logística.'
+      description: 'Mantenimiento preventivo y correctivo según las necesidades del equipo y de su operación.'
     },
     {
       icon: Building2,
       title: 'Soluciones para empresas',
-      description: 'Contratos corporativos y de flota con condiciones comerciales preferenciales.'
+      description: 'Atención a industrias, empresas de logística y transporte, depósitos y centros de distribución.'
     },
     {
-      icon: Headphones,
-      title: 'Asistencia profesional',
-      description: 'Asesoramiento técnico directo y soporte continuo para toda su operación.'
+      icon: Truck,
+      title: 'Alquiler de autoelevadores',
+      description: 'Consulte por alquiler para responder a necesidades temporales de su empresa.'
     }
   ];
 
-  // Agregamos alts con sentido SEO y descriptivo para cada trabajo
   const galleryImages = [
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg',
@@ -100,11 +98,11 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.36_PM_2.jpg',
-      alt: 'Service preventivo a domicilio para autoelevadores'
+      alt: 'Service preventivo de autoelevadores en las instalaciones del cliente'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.34_PM_3.jpg',
-      alt: 'Cambio de repuestos originales de autoelevadores'
+      alt: 'Reemplazo de componentes en un autoelevador'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1789323981/pa3.jpg',
@@ -144,15 +142,7 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_5.jpg',
-      alt: 'Atención técnica de emergencias de autoelevadores'
-    },
-    {
-      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_1.jpg',
-      alt: 'Ajuste de dirección y frenos de minicargadora'
-    },
-    {
-      src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.32_PM_1.jpg',
-      alt: 'Reparación general de bobcat'
+      alt: 'Atención técnica de un autoelevador'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.32_PM.jpg',
@@ -164,7 +154,7 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_7.jpg',
-      alt: 'Inspección de sistemas de seguridad en maquinaria pesada'
+      alt: 'Inspección de componentes de un autoelevador'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942807/WhatsApp_Image_2026-05-20_at_9.02.36_PM.jpg',
@@ -172,15 +162,15 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.36_PM_1.jpg',
-      alt: 'Traslado de autoelevador Cordoba'
+      alt: 'Traslado de un autoelevador en Córdoba'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_3.jpg',
-      alt: 'Pintura Autoelevador Córdoba'
+      alt: 'Trabajo técnico en un autoelevador en Córdoba'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_11.jpg',
-      alt: 'Ajuste e inspección técnica integral'
+      alt: 'Ajuste e inspección técnica de un autoelevador'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM_3.jpg',
@@ -188,7 +178,7 @@ function HomePage() {
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_10.jpg',
-      alt: 'Servicio de mantenimiento integral HMC Servicios'
+      alt: 'Servicio de mantenimiento integral de Autoelevadores HMC'
     },
     {
       src: 'https://res.cloudinary.com/crwsvgt8/image/upload/v1786942804/WhatsApp_Image_2026-05-20_at_9.02.33_PM_4.jpg',
@@ -201,6 +191,7 @@ function HomePage() {
   ];
 
   const handleWhatsApp = () => {
+    trackContactClick('whatsapp');
     window.open(`https://wa.me/5493513488829?text=Hola,%20vi%20la%20p%C3%A1gina%20web%20y%20necesito%20informaci%C3%B3n%20sobre%20la%20reparaci%C3%B3n%20de%20un%20autoelevador.`, '_blank');
   };
 
@@ -211,7 +202,7 @@ function HomePage() {
 
         <meta
           name="description"
-          content="Autoelevadores HMC: servicio técnico, reparación, mantenimiento y alquiler de autoelevadores en Córdoba, Argentina. Atención en taller y a domicilio."
+          content="Servicio técnico, reparación, mantenimiento y alquiler de autoelevadores en Córdoba. Autoelevadores HMC atiende empresas en taller y en sus instalaciones."
         />
 
         <link rel="canonical" href="https://autoelevadoreshmc.com.ar/" />
@@ -224,7 +215,7 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content="Reparación, mantenimiento, diagnóstico y alquiler de autoelevadores en Córdoba. Servicio en taller y a domicilio."
+          content="Reparación, mantenimiento preventivo y correctivo, diagnóstico y alquiler de autoelevadores en Córdoba. Atención en taller o en sus instalaciones."
         />
         <meta
           property="og:image"
@@ -240,7 +231,7 @@ function HomePage() {
         />
         <meta
           name="twitter:description"
-          content="Reparación, mantenimiento, diagnóstico y alquiler de autoelevadores en Córdoba. Servicio en taller y a domicilio."
+          content="Reparación, mantenimiento preventivo y correctivo, diagnóstico y alquiler de autoelevadores en Córdoba. Atención en taller o en sus instalaciones."
         />
         <meta
           name="twitter:image"
@@ -253,20 +244,21 @@ function HomePage() {
       <main className="pt-20">
         <section className="relative min-h-[100dvh] flex items-center bg-gradient-to-br from-muted via-background to-background">
           <div className="absolute inset-0 overflow-hidden">
-            <img 
-              src="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg" 
-              alt="Servicio técnico de autoelevadores industrias en Córdoba" 
+            <img
+              src="https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_1600/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg"
+              alt=""
               className="w-full h-full object-cover opacity-10" 
+              fetchPriority="high"
             />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="max-w-3xl">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                  Servicio técnico y mantenimiento de autoelevadores en Córdoba
+                  Servicio técnico y reparación de autoelevadores en Córdoba
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                  Más de 30 años brindando soluciones integrales para su operación logística. Mantenimiento preventivo, reparaciones hidráulicas y alquiler de equipos.
+                  Autoelevadores HMC atiende a industrias, empresas de logística y transporte, depósitos y centros de distribución de Córdoba. Realizamos reparación, mantenimiento preventivo y correctivo, diagnóstico de fallas y alquiler, en taller o en las instalaciones de su empresa.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]">
@@ -313,21 +305,33 @@ function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Sobre nosotros</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Servicio técnico para empresas en Córdoba</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  HMC Servicios es una empresa especializada en el servicio técnico, mantenimiento y reparación de autoelevadores con más de 30 años de trayectoria en la provincia de Córdoba y zonas aledañas.
+                  Autoelevadores HMC brinda servicio técnico exclusivo para autoelevadores y atiende a empresas industriales, de logística y transporte, depósitos y centros de distribución.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Brindamos servicio técnico especializado en reparación y mantenimiento de autoelevadores, trabajando con compromiso, experiencia y soluciones eficientes para garantizar la continuidad operativa de cada cliente.
+                  El trabajo puede coordinarse en el taller de reparación de autoelevadores de HMC en Córdoba o en las instalaciones del cliente. El servicio incluye diagnóstico de fallas, reparación integral y mantenimiento preventivo y correctivo.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Trabajamos con empresas de logística, industrias, depósitos y centros de distribución, ofreciendo planes de mantenimiento preventivo personalizados y servicio de emergencia a domicilio.
+                  También ofrecemos alquiler de autoelevadores. Para solicitar un presupuesto, indique el tipo de equipo, la falla o tarea requerida y dónde necesita la atención.
                 </p>
               </motion.div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <StatCard number="30+" label="Años de experiencia" icon={TrendingUp} index={0} />
-                <StatCard number="80+" label="Clientes atendidos" icon={Users} index={1} />
-                <StatCard number="300+" label="Equipos mantenidos" icon={Package} index={2} />
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <Wrench className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold text-foreground mb-2">Atención en taller</h3>
+                  <p className="text-sm text-muted-foreground">Servicio técnico para autoelevadores en el taller de HMC.</p>
+                </div>
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <MapPin className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold text-foreground mb-2">Atención en su empresa</h3>
+                  <p className="text-sm text-muted-foreground">Coordinación de trabajos en las instalaciones del cliente en Córdoba.</p>
+                </div>
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <Truck className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold text-foreground mb-2">Alquiler de autoelevadores</h3>
+                  <p className="text-sm text-muted-foreground">Consulte disponibilidad para una necesidad temporal.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -341,13 +345,13 @@ function HomePage() {
               {/* Texto descriptivo */}
               <div className="lg:col-span-5 space-y-4">
                 <span className="text-primary text-sm font-semibold tracking-wider uppercase">
-                  Trabajo a Domicilio
+                  Atención en sus instalaciones
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                   Mirá cómo trabajamos
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Reparación y mantenimiento en tiempo real en tu planta o depósito. Nos enfocamos en cuidar cada detalle técnico para asegurar la máxima durabilidad de tus equipos.
+                  Atención técnica para autoelevadores en las instalaciones de empresas, depósitos y centros de distribución de Córdoba.
                 </p>
                 <div className="pt-2">
                   <Button
@@ -374,7 +378,7 @@ function HomePage() {
                     src="https://res.cloudinary.com/crwsvgt8/video/upload/v1788988906/ReparacionDomicilio.mp4"
                     controls
                     playsInline
-                    preload="metadata"
+                    preload="none"
                     className="w-full h-full object-cover"
                   >
                     Tu navegador no soporta el formato de video.
@@ -419,7 +423,7 @@ function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Contáctenos</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Estamos listos para atender sus consultas y brindarle el mejor servicio técnico
+                Solicite un presupuesto para reparación, mantenimiento, diagnóstico o alquiler de autoelevadores en Córdoba.
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -434,7 +438,11 @@ function HomePage() {
                       <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-foreground">Teléfono</p>
-                        <a href="tel:+5493513488829" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+                        <a
+                          href="tel:+5493513488829"
+                          onClick={() => trackContactClick('phone')}
+                          className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                        >
                           +54 9 3513 48-8829
                         </a>
                       </div>
@@ -443,7 +451,11 @@ function HomePage() {
                       <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-foreground">Email</p>
-                        <a href="mailto:hmcserviciosg2014@gmail.com" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+                        <a
+                          href="mailto:hmcserviciosg2014@gmail.com"
+                          onClick={() => trackContactClick('email')}
+                          className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                        >
                           hmcserviciosg2014@gmail.com
                         </a>
                       </div>
@@ -466,7 +478,7 @@ function HomePage() {
                 </div>
                 <div className="bg-card border border-border rounded-2xl overflow-hidden h-64">
                   <iframe
-                    title="Ubicación de HMC Servicios en Google Maps"
+                    title="Ubicación de Autoelevadores HMC en Córdoba"
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3407.642236502509!2d-64.14692022439556!3d-31.34125207429647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIwJzI4LjUiUyA2NMKwMDgnMzkuNiJX!5e0!3m2!1sen!2sar!4v1786998977187!5m2!1sen!2sar"
                     width="600"
                     height="450"

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+function getOptimizedImageUrl(url, width) {
+  return url.replace('/image/upload/', `/image/upload/f_auto,q_auto,w_${width}/`);
+}
+
 function GalleryImage({ images = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -25,8 +29,12 @@ function GalleryImage({ images = [] }) {
         <AnimatePresence mode="wait">
           <motion.img
             key={currentIndex}
-            src={currentImage.src}
+            src={getOptimizedImageUrl(currentImage.src, 1200)}
             alt={currentImage.alt}
+            width="1200"
+            height="675"
+            loading="lazy"
+            decoding="async"
             initial={{ opacity: 0, scale: 1.02 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
@@ -104,8 +112,12 @@ function GalleryImage({ images = [] }) {
                 }`}
             >
               <img
-                src={image.src}
+                src={getOptimizedImageUrl(image.src, 400)}
                 alt={image.alt}
+                width="400"
+                height="300"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
 

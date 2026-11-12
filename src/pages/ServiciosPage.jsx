@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   ArrowRight,
   Check,
+  Truck,
   Flame,
   Zap
 } from 'lucide-react';
@@ -24,13 +25,12 @@ const SERVICES = [
     icon: Wrench,
     title: 'Reparación integral de autoelevadores',
     description:
-      'Reparación completa de autoelevadores de diferentes marcas y modelos, con diagnóstico de fallas y solución de problemas mecánicos, hidráulicos y eléctricos.',
+      'Reparación integral de autoelevadores con diagnóstico previo para identificar el trabajo necesario. La atención se coordina en el taller o en las instalaciones del cliente.',
     benefits: [
       'Diagnóstico de fallas',
       'Reparación de componentes mecánicos e hidráulicos',
-      'Revisión de sistemas eléctricos',
       'Presupuesto de reparación',
-      'Servicio en taller y a domicilio'
+      'Atención en taller o en las instalaciones del cliente'
     ],
     image:
       'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg'
@@ -39,7 +39,7 @@ const SERVICES = [
     icon: Shield,
     title: 'Mantenimiento preventivo',
     description:
-      'Planes de mantenimiento programado diseñados para conservar el correcto funcionamiento de los equipos y ayudar a prevenir fallas y paradas inesperadas.',
+      'Mantenimiento preventivo y correctivo para atender el estado del autoelevador y las necesidades de cada operación.',
     benefits: [
       'Inspección general del equipo',
       'Cambio de aceites y filtros',
@@ -54,10 +54,9 @@ const SERVICES = [
     icon: Cog,
     title: 'Service técnico completo',
     description:
-      'Service integral con revisión de los principales sistemas del autoelevador, incluyendo componentes hidráulicos, eléctricos, mecánicos y de seguridad.',
+      'Service técnico de autoelevadores con revisión de sus principales componentes y definición de las tareas según el estado del equipo.',
     benefits: [
       'Revisión del sistema hidráulico',
-      'Verificación del sistema eléctrico',
       'Inspección de frenos y dirección',
       'Revisión de componentes mecánicos',
       'Control general del equipo'
@@ -74,7 +73,7 @@ const SERVICES = [
       'Diagnóstico de fallas',
       'Revisión de sistemas del equipo',
       'Identificación de problemas mecánicos',
-      'Identificación de problemas hidráulicos y eléctricos',
+      'Identificación de problemas hidráulicos',
       'Informe y presupuesto de reparación'
     ],
     image:
@@ -94,6 +93,19 @@ const SERVICES = [
     ],
     image:
       'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942805/WhatsApp_Image_2026-05-20_at_9.02.33_PM.jpg'
+  },
+  {
+    icon: Truck,
+    title: 'Alquiler de autoelevadores',
+    description:
+      'Alquiler de autoelevadores para empresas que requieren un equipo por un período determinado. La disponibilidad y las condiciones se confirman al realizar la consulta.',
+    benefits: [
+      'Consulta de disponibilidad',
+      'Alquiler para necesidades temporales',
+      'Coordinación de condiciones y plazo'
+    ],
+    image:
+      'https://res.cloudinary.com/crwsvgt8/image/upload/f_auto,q_auto,w_800/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg'
   }
 ];
 
@@ -272,13 +284,11 @@ function ServiciosPage() {
   return (
     <>
       <Helmet>
-        <title>
-          Servicios para Autoelevadores en Córdoba | Autoelevadores HMC
-        </title>
+        <title>Servicio técnico de autoelevadores en Córdoba | Autoelevadores HMC</title>
 
         <meta
           name="description"
-          content="Autoelevadores HMC ofrece reparación, mantenimiento preventivo, service técnico, diagnóstico y reparaciones hidráulicas y mecánicas de autoelevadores en Córdoba."
+          content="Reparación y mantenimiento de autoelevadores en Córdoba: service técnico, diagnóstico de fallas y reparaciones hidráulicas y mecánicas. Atención en taller o en su empresa."
         />
 
         <link
@@ -295,12 +305,12 @@ function ServiciosPage() {
 
         <meta
           property="og:title"
-          content="Servicios para Autoelevadores en Córdoba | Autoelevadores HMC"
+          content="Servicio técnico de autoelevadores en Córdoba | Autoelevadores HMC"
         />
 
         <meta
           property="og:description"
-          content="Reparación, mantenimiento preventivo, service técnico, diagnóstico y reparaciones hidráulicas y mecánicas de autoelevadores en Córdoba."
+          content="Reparación y mantenimiento de autoelevadores en Córdoba: service técnico, diagnóstico de fallas y reparaciones hidráulicas y mecánicas. Atención en taller o en su empresa."
         />
 
         <meta
@@ -315,18 +325,36 @@ function ServiciosPage() {
 
         <meta
           name="twitter:title"
-          content="Servicios para Autoelevadores en Córdoba | Autoelevadores HMC"
+          content="Servicio técnico de autoelevadores en Córdoba | Autoelevadores HMC"
         />
 
         <meta
           name="twitter:description"
-          content="Reparación, mantenimiento, diagnóstico y service técnico de autoelevadores en Córdoba. Atención en taller y a domicilio."
+          content="Reparación y mantenimiento de autoelevadores en Córdoba: service técnico, diagnóstico de fallas y reparaciones hidráulicas y mecánicas."
         />
 
         <meta
           name="twitter:image"
           content="https://res.cloudinary.com/crwsvgt8/image/upload/v1786942806/WhatsApp_Image_2026-05-20_at_9.02.35_PM_2.jpg"
         />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'Servicio técnico de autoelevadores',
+            provider: {
+              '@id': 'https://autoelevadoreshmc.com.ar/#localbusiness'
+            },
+            areaServed: {
+              '@type': 'City',
+              name: 'Córdoba'
+            },
+            serviceType: SERVICES.map((service) => service.title),
+            description:
+              'Reparación integral, mantenimiento preventivo y correctivo, diagnóstico de fallas, reparaciones hidráulicas y mecánicas y alquiler de autoelevadores.'
+          })}
+        </script>
       </Helmet>
 
       <Header />
@@ -342,12 +370,11 @@ function ServiciosPage() {
               className="text-center mb-16"
             >
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Servicios para autoelevadores
+                Servicio técnico y reparación de autoelevadores en Córdoba
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Reparación, mantenimiento y servicio técnico para
-                autoelevadores en Córdoba.
+                Mantenimiento preventivo y correctivo, diagnóstico, reparaciones hidráulicas y mecánicas y alquiler de autoelevadores. Atención en taller y en las instalaciones del cliente.
               </p>
             </motion.div>
 
@@ -414,7 +441,10 @@ function ServiciosPage() {
                       <img
                         src={service.image}
                         alt={`${service.title} - Autoelevadores HMC`}
+                        width="800"
+                        height="600"
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -427,17 +457,15 @@ function ServiciosPage() {
             <div className="mt-28 pt-16 border-t border-border">
               <div className="text-center mb-12">
                 <span className="text-xs md:text-sm font-bold tracking-widest uppercase bg-primary/10 text-primary px-4 py-1.5 rounded-full inline-block mb-3">
-                  Contratos de mantenimiento
+                  Mantenimiento preventivo de autoelevadores
                 </span>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                  Planes a medida de tu operación
+                  Frecuencia de mantenimiento según el uso
                 </h2>
 
                 <p className="text-muted-foreground mt-3 max-w-3xl mx-auto text-base md:text-lg">
-                  Nuestros contratos de mantenimiento se adecúan
-                  perfectamente a la operación de cada cliente dependiendo
-                  de las horas de uso mensuales de los equipos.
+                  Las tareas y los intervalos dependen del tipo de autoelevador, sus horas de uso y las indicaciones del fabricante. Consulte para definir el mantenimiento requerido para su equipo.
                 </p>
               </div>
 
@@ -670,8 +698,7 @@ function ServiciosPage() {
             </h2>
 
             <p className="text-lg text-secondary-foreground/80 mb-8 leading-relaxed">
-              Contáctenos para recibir asesoramiento técnico sin cargo y un
-              presupuesto adaptado a sus necesidades específicas.
+              Solicite un presupuesto para reparación, mantenimiento o alquiler de autoelevadores en Córdoba.
             </p>
 
             <Button

@@ -71,7 +71,7 @@ export default function BrandsCarousel() {
       {/* Título centrado con estilo industrial */}
       <div className="w-full text-center mb-10 px-4">
         <p className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-slate-500">
-          Servicio Técnico y Repuestos Multimarca
+          Servicio técnico multimarca de autoelevadores
         </p>
       </div>
 

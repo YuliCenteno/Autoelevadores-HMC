@@ -13,14 +13,12 @@ function ContactForm() {
     telefono: '',
     mensaje: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     if (!formData.nombre || !formData.telefono || !formData.mensaje) {
@@ -28,35 +26,25 @@ function ContactForm() {
       return;
     }
 
-    setIsSubmitting(true);
+    const subject = 'Consulta desde el sitio de Autoelevadores HMC';
+    const body = [
+      `Nombre: ${formData.nombre}`,
+      `Empresa: ${formData.empresa}`,
+      `Teléfono: ${formData.telefono}`,
+      '',
+      'Consulta:',
+      formData.mensaje
+    ].join('\n');
 
-    try {
-      const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-      const newSubmission = {
-        ...formData,
-        timestamp: new Date().toISOString(),
-        id: Date.now()
-      };
-      submissions.push(newSubmission);
-      localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
-
-      toast.success('Mensaje enviado correctamente. Nos contactaremos pronto.');
-      
-      setFormData({
-        nombre: '',
-        empresa: '',
-        telefono: '',
-        mensaje: ''
-      });
-    } catch (error) {
-      toast.error('Error al enviar el mensaje. Por favor intente nuevamente.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    window.location.href = `mailto:hmcserviciosg2014@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    toast.info('Se abrirá su aplicación de correo. Revise y envíe el mensaje desde allí.');
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <p className="text-sm text-muted-foreground" role="note">
+        Al continuar, se abrirá su aplicación de correo con la consulta preparada. El mensaje se enviará solo cuando usted lo confirme.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="nombre" className="text-foreground font-medium">
@@ -123,17 +111,10 @@ function ContactForm() {
       
       <Button
         type="submit"
-        disabled={isSubmitting}
         className="w-full md:w-auto bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]"
       >
-        {isSubmitting ? (
-          'Enviando...'
-        ) : (
-          <>
-            <Send className="w-4 h-4 mr-2" />
-            Enviar mensaje
-          </>
-        )}
+        <Send className="w-4 h-4 mr-2" />
+        Preparar consulta por email
       </Button>
     </form>
   );
